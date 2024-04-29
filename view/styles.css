@@ -1,0 +1,546 @@
+@font-face {
+    font-family: 'Lovelo';
+    src: url('fonts/Lovelo-Black.woff2') format('woff2'),
+         url('fonts/Lovelo-Black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/RobotoCondensed-VariableFont_wght.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+.roboto{
+    font-family: 'Roboto', sans-serif; /* Utilisation de la police avec un fallback */
+}
+
+
+body {
+    background-image: url('images/background.webp');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Lovelo', sans-serif;
+    margin-top: 150px;
+}
+.logo-container {
+    justify-content: center;
+    top: 0;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    z-index: 500;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#menu-icon {
+    position: fixed;
+    top: 0; 
+    right: 7px;
+    background-color: white;
+    z-index: 10000001;
+    border: 2px solid black;
+}
+
+#menu-icon img {
+    width: 30px;
+    height: auto;
+}
+#menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9); /* Blanc avec 70% d'opacité */
+    border: 2px solid black;
+    overflow: auto;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    z-index: 10000000;
+}
+
+
+
+
+
+
+#menu.menu-open {
+    transform: translateX(0);
+}
+
+.form-container {
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+/* Centrer la pastille verticalement */
+.switch-container {
+    display: flex;
+    align-items: center; /* ajouter cette ligne */
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+/* Cadre autour du titre du formulaire */
+form {
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center; /* centre tous les éléments à l'intérieur du formulaire */
+
+}
+
+/* Rendre les champs de formulaire plus jolis */
+input[type=text], input[type=password], input[type=email] {
+    padding: 10px;
+    
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* arrondit les bords */
+}
+
+
+.message {
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+#decoimg {
+    width: 60%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    margin-bottom: 10px;
+
+}
+
+
+.infoimg {
+    width: 15%;
+}
+
+header {
+    margin-bottom: 10px;
+}
+.buttonsbox {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    padding: 0 5%;
+    text-align-last: center;
+    margin: 20px auto;
+
+}
+
+.buttonbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+}
+
+.buttonbox img {
+    width: 80%;
+    height: auto;
+}
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+@media (max-width: 600px) {
+    .buttonbox {
+        width: 100%; /* On change la largeur pour occuper toute la largeur de l'écran */
+    }
+    .packbox {
+        width: 100%; /* On change la largeur pour occuper toute la largeur de l'écran */
+    }
+    .buttonsbox {
+        flex-direction: column; /* On change l'orientation des flexbox pour les empiler verticalement */
+    }
+}
+
+.packbox {
+        /* justify-content: center; */
+    /* align-items: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    color: black;
+    /* height: 150px; */
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.packbox img {
+    width: 60%;
+    height: auto;
+}
+.player-card {
+   
+    width: 200px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.player-info {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.player-name {
+    font-weight: bold;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.player-lastname {
+    font-size: 16px;
+}
+
+.player-flag img {
+    height: 25px;
+
+}
+
+.player-face {
+    position: relative;
+    width: 100%;
+    height: 150px;
+}
+
+.player-face .face-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.player-rating {
+    text-align: center;
+    color: #000;
+}
+
+.position {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.rating-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 14px;
+    border: 2px solid #000;
+}
+
+.player-score {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000;
+
+}
+
+.score-circle {
+    border: 2px solid #000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.player-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .player-flag {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .player-table {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.player-table th, .player-table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.player-face-cell {
+    position: relative;  
+    margin-bottom: 30%;
+    width: 100%;
+    margin-top: 30%;
+}
+
+.face-elements {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+}
+.player-flags {
+    width: 60% ;
+    border: 2px solid #000;
+  }
+  /* Change la couleur du texte pour "Show X entries" */
+.dataTables_length label {
+    color: white;
+}
+
+/* Change la couleur du texte pour les boutons de pagination "Previous" / "Next" */
+.dataTables_paginate a {
+    color: white;
+}
+
+/* Change la couleur du texte pour le champ de recherche */
+.dataTables_filter label {
+    color: white;
+}
+
+/* Change la couleur du texte pour les infos "Showing 1 to 10 of 20 entries" */
+.dataTables_info {
+    color: white;
+}
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+    color: #fff;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: white !important;
+}
+.dataTables_wrapper .dataTables_length select {
+   color: white;
+}
+.dataTables_wrapper .dataTables_filter input {
+    color: white ;
+}
+
+.column-sort {
+    background-color: #f5f5f5;  /* Couleur de fond de la colonne triée */
+}
+
+.rating-circles {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 14px;
+    border: 2px solid #000;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nationality-cell {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.info-cell {
+    background-color: rgba(255, 255, 255);
+    width: 50px;
+}
+.note-cell {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 50px;
+
+}
+.global-cell {
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 50px;
+
+}
+
+.tablecontainer {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    border: 2px solid #000;
+}
+
+.firstname {
+    font-size: x-small;
+}
+
+.lastname {
+    font-size: small;
+}
+
+.sellimg {
+    width: 100%;
+}
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 0px 0px;
+    width: 83px;
+} 
+
+
+.next-nat img{
+    width: 100px;
+}
+
+.textnextnat {
+    color: white;
+}
+
+.next-nat {
+    text-align: center;
+}
+
+.back-button {
+    width: 40px;
+    height: 40px;
+    background-image: url(images/back.png);
+    background-size: cover;
+    cursor: pointer;
+    top: 0;
+    position: fixed;
+    display: flex;
+    z-index: 1000000000000;
+  }
+
+  .sellallimg {
+    width: 20vh;
+  }
+/* Style CSS pour les écrans larges et par défaut */
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container, .body-content, #menu-icon {
+    flex: 1;
+}
+
+/* Media Query pour les tablettes et écrans plus petits */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .logo-container {
+        order: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+    .back-button, .menu-button {
+        order: 2;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .body-content {
+        order: 3;
+        width: 100%;
+    }
+}
